@@ -1,0 +1,3 @@
+echo "automata-lib" > requirements.txt
+echo "coloraide" >> requirements.txt  
+echo "pygraphviz" >> requirements.txt
