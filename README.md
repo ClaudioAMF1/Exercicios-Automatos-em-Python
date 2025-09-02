@@ -14,16 +14,37 @@ Este projeto implementa uma coleção completa de autômatos finitos (AFDs, AFNs
 ## Autômatos Implementados
 
 ### Autômatos Finitos Determinísticos (AFD)
-1. **Exatamente 4 símbolos**: Aceita strings com exatamente 4 caracteres do alfabeto {a,b}
-2. **Começa com "aba"**: Aceita strings que iniciam com o padrão "aba"
+1. **Exatamente 4 símbolos**
+   - **Alfabeto**: {a, b}
+   - **Linguagem**: L = {w ∈ {a,b}* | |w| = 4}
+   - **Descrição**: Aceita strings com exatamente 4 caracteres
+
+2. **Começa com "aba"**
+   - **Alfabeto**: {a, b}
+   - **Linguagem**: L = {w ∈ {a,b}* | w começa com "aba"}
+   - **Descrição**: Aceita strings que iniciam com o padrão "aba"
 
 ### Autômatos Finitos Não-Determinísticos (AFN)  
-3. **Mínimo 3 ocorrências de "ab"**: Conta padrões "ab" não-sobrepostos
-4. **Mínimo 3 a's OU b's OU c's**: Usa contadores paralelos com ε-transições
+3. **Mínimo 3 ocorrências de "ab"**
+   - **Alfabeto**: {a, b}
+   - **Linguagem**: L = {w ∈ {a,b}* | w possui no mínimo 3 ocorrências de "ab"}
+   - **Descrição**: Conta padrões "ab" não-sobrepostos usando estados intermediários
+
+4. **Mínimo 3 a's OU b's OU c's**
+   - **Alfabeto**: {a, b, c}
+   - **Linguagem**: L = {w ∈ {a,b,c}* | |w|ₐ ≥ 3 ∨ |w|ᵦ ≥ 3 ∨ |w|ₓ ≥ 3}
+   - **Descrição**: Usa contadores paralelos com ε-transições para implementar OR lógico
 
 ### Autômatos Finitos com ε-transições (AFN-ε)
-5. **a's antecedem b's**: Implementa a linguagem a*b*
-6. **Contém "ab" ou "ba"**: Busca não-determinística por qualquer padrão
+5. **a's antecedem b's**
+   - **Alfabeto**: {a, b}
+   - **Linguagem**: L = {a*b*} = {w | w possui símbolos 'a' que antecedem símbolos 'b'}
+   - **Descrição**: Implementa a linguagem regular a*b* usando ε-transições
+
+6. **Contém "ab" ou "ba"**
+   - **Alfabeto**: {a, b}
+   - **Linguagem**: L = {w ∈ {a,b}* | w contém "ab" ∨ w contém "ba"}
+   - **Descrição**: Busca não-determinística por qualquer um dos padrões usando ε-transições
 
 ## Requisitos
 
@@ -40,8 +61,8 @@ pip install automata-lib coloraide pygraphviz
 
 1. Clone o repositório:
 ```bash
-git clone <url-do-repositorio>
-cd automatos-finitos
+git clone https://github.com/ClaudioAMF1/Exercicios-Automatos-em-Python.git
+cd Exercicios-Automatos-em-Python
 ```
 
 2. Crie um ambiente virtual:
@@ -54,7 +75,7 @@ source .venv/bin/activate  # Linux/Mac
 
 3. Instale as dependências:
 ```bash
-pip install automata-lib coloraide pygraphviz
+pip install -r requirements.txt
 ```
 
 ## Uso
@@ -74,9 +95,10 @@ O programa executará automaticamente:
 ## Estrutura dos Arquivos
 
 ```
-projeto/
+Exercicios-Automatos-em-Python/
 ├── automatos.py          # Arquivo principal
 ├── README.md            # Este arquivo
+├── requirements.txt     # Lista de dependências
 ├── diagramas/           # Diagramas gerados
 │   ├── afd_4_simbolos.png
 │   ├── afd_comeca_aba.png
@@ -159,13 +181,7 @@ Cada autômato inclui casos de teste abrangentes:
 - Grandes strings podem afetar a performance de visualização
 - Alguns terminais podem não exibir caracteres especiais (ε) corretamente
 
-
-
-## Licença
-
-Este projeto é destinado para fins educacionais em Teoria da Computação.
-
 ## Autor
 
-Implementado como material didático para estudo de Autômatos Finitos e Linguagens Formais.
+Implementado por **ClaudioAMF1** como material didático para estudo de Autômatos Finitos e Linguagens Formais.
 
